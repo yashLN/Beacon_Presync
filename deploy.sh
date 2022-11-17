@@ -1,8 +1,8 @@
 #!/bin/bash
 read -p "Enter Your fee recipient/Ethereum/Metamask address: " code
 [[ "$code" =~ ^0x[0-9a-fA-F]{40}$ ]] && echo "" || { echo "You have entered an invalid address"; exit $ERRCODE; }
-sudo echo "recipientcode=$code" > /var/tmp/.recipientcode.txt
-#sudo sed -i  -e "s/recipientcode/$code/g" /var/tmp/docker-compose.yaml
+sudo echo "recipientcode=$code" > /var/.recipientcode.txt
+#sudo sed -i  -e "s/recipientcode/$code/g" /var/docker-compose.yaml
 jwtDir="JWT"
 jwtFile="jwt.hex"
 if [ $# -eq 0 ]; then
