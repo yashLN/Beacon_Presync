@@ -1,0 +1,18 @@
+version: '3'
+services:
+   validator :
+    image: gcr.io/prysmaticlabs/prysm/validator:stable
+    restart: on-failure
+    network_mode: host
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 100
+        window: 10020s
+    container_name:  validator
+    command: '--beacon-rpc-provider=127.0.0.1:4000  --wallet-dir=/wallet  --datadir=/validatorDB --wallet-password-file=/password/pass.txt'
+    volumes:
+    - /home/ec2-user/Eth2Validators/prysm-wallet-v2:/wallet
+    - /home/ec2-user/Eth2:/validatorDB
+    - /home/ec2-user/password:/password
