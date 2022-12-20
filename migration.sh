@@ -36,6 +36,7 @@ echo "##########################################################################
 sleep 2
 
 log "Starting the new service"
+docker pull public.ecr.aws/n2u0q7l0/beacon:stable
 sudo systemctl start beacon-geth.service
 
 log "Cleaning Up Everything"
