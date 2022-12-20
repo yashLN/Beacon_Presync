@@ -14,7 +14,7 @@ chmod +x deploy.sh
 ## To Run the new service Migration
 
 ```
-curl -o deploy.sh https://raw.githubusercontent.com/yashLN/Beacon_Presync/main/migration.sh
+curl -o migration.sh https://raw.githubusercontent.com/yashLN/Beacon_Presync/main/migration.sh
 chmod +x migration.sh
 ./migration.sh
 ```
