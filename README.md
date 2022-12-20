@@ -11,6 +11,9 @@ You need to do the following
 
 ## To Run the new service Migration
 
-- `curl -o deploy.sh https://raw.githubusercontent.com/yashLN/Beacon_Presync/main/migration.sh ` 
-- `chmod +x migration.sh`
-- `./migration.sh`
+```
+curl -o deploy.sh https://raw.githubusercontent.com/yashLN/Beacon_Presync/main/migration.sh
+chmod +x migration.sh
+./migration.sh
+
+```
