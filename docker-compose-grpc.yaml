@@ -26,7 +26,8 @@ services:
     ports:
       - "4000:4000"
       - "13000:13000"
-      - "12000:12000" 
+      - "12000:12000"
+      - "8080:8080"
     network_mode: host        
     deploy:
       restart_policy:
@@ -35,7 +36,7 @@ services:
         max_attempts: 100
         window: 10020s
     container_name:  beacon-node
-    command: '--datadir=/beaconchaindata --rpc-host=0.0.0.0 --monitoring-host=0.0.0.0 --block-batch-limit=512 --p2p-max-peers=100 --accept-terms-of-use=true --execution-endpoint=http://localhost:8551/ --jwt-secret=/jwt/jwt.hex --grpc-gateway-port=3500 --grpc-gateway-host=0.0.0.0 --suggested-fee-recipient=${recipientcode}'
+    command: '--datadir=/beaconchaindata --rpc-host=0.0.0.0 --monitoring-host=0.0.0.0 --monitoring-port=8080 --block-batch-limit=512 --p2p-max-peers=100 --accept-terms-of-use=true --execution-endpoint=http://localhost:8551/ --jwt-secret=/jwt/jwt.hex --grpc-gateway-port=3500 --grpc-gateway-host=0.0.0.0 --suggested-fee-recipient=${recipientcode}'
     volumes:
     - /home/ec2-user/.eth2:/beaconchaindata
     - /home/ec2-user/JWT:/jwt
