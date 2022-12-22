@@ -8,7 +8,7 @@ wget https://raw.githubusercontent.com/yashLN/Beacon_Presync/main/validator/vali
 echo "Apply the new service"
 
 sudo mkdir -p /var/validator 
-sudo mv docker-compose.yaml /var/docker-compose.yaml
+sudo mv docker-compose.yaml /var/validator/docker-compose.yaml
 sudo mv validator.service  /etc/systemd/system/
 sudo systemctl daemon-reload
 
