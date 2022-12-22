@@ -36,7 +36,7 @@ sudo systemctl start prometheus
 sudo systemctl enable prometheus
 sudo systemctl status prometheus
 wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64.rpm
-sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm
+sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm -y 
 
 wget $prometheus_datasource
 sudo mv prometheus_datasource.yml /etc/grafana/provisioning/dashboards/datasources/prometheus_datasource.yaml
