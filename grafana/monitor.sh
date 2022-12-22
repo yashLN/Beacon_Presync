@@ -1,7 +1,11 @@
 #! /bin/bash 
 set -e 
+
 prometheusYmlPath=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/prometheus.yml
 prometheusServicePath=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/prometheus.service
+prometheus_datasource=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/prometheus_datasource.yml
+dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/dashboard.yml
+small_amount_validators=https://docs.prylabs.network/assets/grafana-dashboards/small_amount_validators.json
 
 echo "###### Downloading Prometheus Tar File ######"
 sudo mkdir -p /etc/prometheus
@@ -33,3 +37,12 @@ sudo systemctl enable prometheus
 sudo systemctl status prometheus
 wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64.rpm
 sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm
+
+wget $prometheus_datasource
+sudo mv prometheus_datasource.yml /etc/grafana/provisioning/dashboards/datasources/prometheus_datasource.yml
+
+wget $small_amount_validators
+sudo mv small_amount_validators.json /etc/grafana/provisioning/dashboards/small_amount_validators.json
+wget $dashboard 
+sudo mv dashboard.yml /etc/grafana/provisioning/dashboards/dashboard.yml
+sudo systemctl restart grafana-server
