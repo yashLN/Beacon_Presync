@@ -31,3 +31,5 @@ sudo mv prometheus.service /etc/systemd/system/prometheus.service
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
 sudo systemctl status prometheus
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64.rpm
+sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm
