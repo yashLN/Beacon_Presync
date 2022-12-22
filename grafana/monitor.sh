@@ -39,10 +39,10 @@ wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64
 sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm -y 
 
 wget $prometheus_datasource
-sudo mv prometheus_datasource.yml /etc/grafana/provisioning/dashboards/datasources/prometheus_datasource.yaml
+sudo mv prometheus_datasource.yaml /etc/grafana/provisioning/dashboards/datasources/prometheus_datasource.yaml
 
 wget $small_amount_validators
 sudo mv small_amount_validators.json /etc/grafana/provisioning/dashboards/small_amount_validators.json
 wget $dashboard 
-sudo mv dashboard.yml /etc/grafana/provisioning/dashboards/dashboard.yaml
+sudo mv dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
 sudo systemctl restart grafana-server
