@@ -35,15 +35,15 @@ sudo cp -n prometheus.service /etc/systemd/system/prometheus.service
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
 sudo systemctl status prometheus
-wget https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64.rpm
-sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm -y 
+curl -o grafana-enterprise-9.3.2-1.x86_64.rpm https://dl.grafana.com/enterprise/release/grafana-enterprise-9.3.2-1.x86_64.rpm
+sudo yum install grafana-enterprise-9.3.2-1.x86_64.rpm -y || true 
 
-wget $prometheus_datasource
+curl -o prometheus_datasource.yaml $prometheus_datasource
 ls 
-sudo cp -n prometheus_datasource.yaml /etc/grafana/provisioning/dashboards/datasources/prometheus_datasource.yaml
+sudo cp -n prometheus_datasource.yaml /etc/grafana/provisioning/datasources/prometheus_datasource.yaml
 
-wget $small_amount_validators
+curl -o small_amount_validators.json $small_amount_validators
 sudo cp -n small_amount_validators.json /etc/grafana/provisioning/dashboards/small_amount_validators.json
-wget $dashboard 
+curl -o dashboard.yaml $dashboard 
 sudo cp -n dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
 sudo systemctl restart grafana-server
