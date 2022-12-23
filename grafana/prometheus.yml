@@ -19,29 +19,6 @@ scrape_configs:
   #   static_configs:
   #     - targets: ['localhost:8081']
 
-  - job_name: 'geth node 8545'
-    static_configs:
-      - targets: ['localhost:8545']
-
-  - job_name: 'geth node 30303'
-    static_configs:
-      - targets: ['localhost:30303']
-
-  - job_name: 'geth node 8551'
-    static_configs:
-      - targets: ['localhost:8551']
-
-  - job_name: 'beacon node 4000'
-    static_configs:
-      - targets: ['localhost:4000']
-
-  - job_name: 'beacon node 13000'
-    static_configs:
-      - targets: ['localhost:13000']
-
-  - job_name: 'beacon node 12000'
-    static_configs:
-      - targets: ['localhost:12000']
-  - job_name: 'beacon node 8080'
+  - job_name: 'beacon node'
     static_configs:
       - targets: ['localhost:8080']
