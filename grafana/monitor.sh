@@ -7,6 +7,7 @@ prometheus_datasource=https://raw.githubusercontent.com/yashLN/Beacon_Presync/gr
 dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/dashboard.yaml
 small_amount_validators=https://docs.prylabs.network/assets/grafana-dashboards/small_amount_validators.json
 node_exporter=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/node_exporter.service
+beacon_dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/beacon-dashboard.json
 
 echo "###### Downloading Prometheus Tar File ######"
 sudo mkdir -p /etc/prometheus
@@ -73,6 +74,6 @@ sudo cp -n prometheus_datasource.yaml /etc/grafana/provisioning/datasources/prom
 
 curl -o small_amount_validators.json $small_amount_validators
 sudo cp -n small_amount_validators.json /etc/grafana/provisioning/dashboards/small_amount_validators.json
-curl -o dashboard.yaml $dashboard 
-sudo cp -n dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
+curl -o dashboard.yaml $beacon_dashboard 
+sudo cp  dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
 sudo systemctl restart grafana-server
