@@ -35,6 +35,9 @@ echo "Installed Prometheus Successfully"
 echo "Adding Prometheus Service"
 curl -o prometheus.service $prometheusServicePath 
 sudo cp -n prometheus.service /etc/systemd/system/prometheus.service
+# sudo systemctl start prometheus.service
+# sudo systemctl enable prometheus
+# sudo systemctl status prometheus
 
 
 echo "###########################################################################"
@@ -53,7 +56,7 @@ sudo systemctl enable node_exporter
 sudo systemctl restart node_exporter
 echo "restarted"
 sleep 2
-sudo systemctl restart prometheus
+sudo systemctl start prometheus.service
 sudo systemctl enable prometheus
 sudo systemctl status prometheus
 echo "done"
