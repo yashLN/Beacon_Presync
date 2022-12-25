@@ -46,13 +46,17 @@ tar -xzvf node_exporter-1.5.0.linux-amd64.tar.gz
 sudo useradd -rs /bin/false nodeusr || true 
 sudo cp -r -n node_exporter-1.5.0.linux-amd64/node_exporter /usr/local/bin/
 curl -o node_exporter.service $node_exporter
+echo "done"
+sudo cp node_exporter.service /etc/systemd/system/node_exporter.service
 sudo systemctl daemon-reload
 sudo systemctl enable node_exporter
 sudo systemctl restart node_exporter
+echo "restarted"
+sleep 2
 sudo systemctl restart prometheus
 sudo systemctl enable prometheus
 sudo systemctl status prometheus
-
+echo "done"
 echo "###########################################################################"
 echo "#################### Installing Grafana ###################################"
 echo "###########################################################################"
