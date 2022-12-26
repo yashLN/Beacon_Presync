@@ -590,16 +590,6 @@
           "intervalFactor": 1,
           "legendFormat": "beacon node",
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "up{job=\"validator\"}",
-          "interval": "",
-          "legendFormat": "validator",
-          "refId": "B"
         }
       ],
       "thresholds": [
@@ -626,11 +616,13 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:152",
           "format": "short",
           "logBase": 1,
           "show": true
         },
         {
+          "$$hashKey": "object:153",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -743,11 +735,13 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:379",
           "colorMode": "critical",
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 50
+          "value": 50,
+          "yaxis": "left"
         }
       ],
       "timeRegions": [],
@@ -765,11 +759,13 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:351",
           "format": "short",
           "logBase": 1,
           "show": true
         },
         {
+          "$$hashKey": "object:352",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -825,7 +821,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -900,6 +897,6 @@
   "timezone": "",
   "title": "Beacon",
   "uid": "KMkWONpVk",
-  "version": 14,
+  "version": 18,
   "weekStart": ""
 }
