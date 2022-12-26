@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -160,18 +159,71 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46"
+              },
+              {
+                "color": "#eab839",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 20
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
       "gridPos": {
-        "h": 3,
+        "h": 2,
         "w": 13,
         "x": 11,
         "y": 2
       },
-      "id": 16,
-      "libraryPanel": {
-        "name": "Slots behind",
-        "uid": "qv4-OHt4z"
+      "id": 26,
+      "links": [],
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "title": "Slots behind"
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "expr": "beacon_clock_time_slot-beacon_head_slot",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Slots behind",
+          "refId": "A"
+        }
+      ],
+      "title": "Slots behind",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -239,18 +291,168 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "#FADE2A",
+                "value": 0.17
+              },
+              {
+                "color": "#299c46",
+                "value": 11.9
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 2,
         "w": 13,
         "x": 11,
-        "y": 5
+        "y": 4
       },
-      "id": 14,
-      "libraryPanel": {
-        "name": "Node process started",
-        "uid": "FNyNdHt4z"
+      "id": 56,
+      "links": [],
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "title": "Node process started"
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "(time()-process_start_time_seconds{job=\"beacon node\"})/3600",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Node process started",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This panel won't have consistant values during the first hour of the node started process",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "displayName": "",
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "green",
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 13,
+        "x": 11,
+        "y": 6
+      },
+      "id": 40,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(delta(log_entries_total{job=\"beacon node\", level=\"error\"}[1h]) > 0)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "error",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(delta(log_entries_total{job=\"beacon node\", level=\"warning\"}[1h]) > 0)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "warning",
+          "refId": "B"
+        }
+      ],
+      "title": "Hourly log type counter",
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -318,20 +520,6 @@
       "type": "stat"
     },
     {
-      "gridPos": {
-        "h": 3,
-        "w": 13,
-        "x": 11,
-        "y": 7
-      },
-      "id": 12,
-      "libraryPanel": {
-        "name": "Hourly log type counter test",
-        "uid": "y89MONtVk"
-      },
-      "title": "Hourly log type counter"
-    },
-    {
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
@@ -367,7 +555,7 @@
         "h": 3,
         "w": 13,
         "x": 11,
-        "y": 10
+        "y": 9
       },
       "id": 6,
       "options": {
@@ -550,7 +738,7 @@
         "h": 1,
         "w": 13,
         "x": 11,
-        "y": 13
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 44,
@@ -694,7 +882,7 @@
         "h": 1,
         "w": 13,
         "x": 11,
-        "y": 14
+        "y": 13
       },
       "hiddenSeries": false,
       "id": 28,
@@ -954,6 +1142,6 @@
   "timezone": "",
   "title": "Beacon",
   "uid": "KMkWONpVk",
-  "version": 19,
+  "version": 1,
   "weekStart": ""
 }
