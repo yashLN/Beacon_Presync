@@ -42,8 +42,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -56,7 +55,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -108,11 +107,10 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
-                "color": "red",
+                "color": "green",
                 "value": 80
               }
             ]
@@ -121,9 +119,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 2,
-        "w": 13,
-        "x": 11,
+        "h": 3,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 18,
@@ -165,6 +163,70 @@
       },
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 0,
+        "y": 3
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "beacon_head_slot",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Beacon Head Slot",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -187,10 +249,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 2,
-        "w": 13,
-        "x": 11,
-        "y": 2
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 3
       },
       "id": 26,
       "links": [],
@@ -240,11 +302,10 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
-                "color": "red",
+                "color": "green",
                 "value": 80
               }
             ]
@@ -253,12 +314,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 11,
+        "h": 3,
+        "w": 12,
         "x": 0,
-        "y": 3
+        "y": 6
       },
-      "id": 4,
+      "id": 20,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -280,14 +341,14 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "beacon_head_slot",
+          "editorMode": "code",
+          "expr": "beacondb_pending_deposits{}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Beacon Head Slot",
+      "title": "Beacondb Pending Deposits",
       "type": "stat"
     },
     {
@@ -320,10 +381,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 2,
-        "w": 13,
-        "x": 11,
-        "y": 4
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 6
       },
       "id": 56,
       "links": [],
@@ -364,6 +425,70 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "powchain_block_number",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Powchain Block Number",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "description": "This panel won't have consistant values during the first hour of the node started process",
       "fieldConfig": {
         "defaults": {
@@ -387,7 +512,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "#EAB839",
@@ -405,9 +531,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 13,
-        "x": 11,
-        "y": 6
+        "w": 12,
+        "x": 12,
+        "y": 9
       },
       "id": 40,
       "options": {
@@ -469,73 +595,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 11,
-        "x": 0,
-        "y": 7
-      },
-      "id": 20,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.3.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "beacondb_pending_deposits{}",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Beacondb Pending Deposits",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "#EAB839",
@@ -553,9 +613,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 13,
-        "x": 11,
-        "y": 9
+        "w": 12,
+        "x": 0,
+        "y": 12
       },
       "id": 6,
       "options": {
@@ -587,71 +647,6 @@
         }
       ],
       "title": "P2P Peer Count",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 11,
-        "x": 0,
-        "y": 12
-      },
-      "id": 2,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.3.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "builder",
-          "expr": "powchain_block_number",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Powchain Block Number",
       "type": "stat"
     },
     {
@@ -735,9 +730,9 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 1,
-        "w": 13,
-        "x": 11,
+        "h": 1.5,
+        "w": 12,
+        "x": 12,
         "y": 12
       },
       "hiddenSeries": false,
@@ -879,10 +874,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 1,
-        "w": 13,
-        "x": 11,
-        "y": 13
+        "h": 1.5,
+        "w": 12,
+        "x": 12,
+        "y": 13.5
       },
       "hiddenSeries": false,
       "id": 28,
@@ -995,7 +990,7 @@
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 24,
         "x": 0,
         "y": 15
