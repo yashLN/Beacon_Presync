@@ -42,7 +42,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -107,7 +108,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "green",
@@ -171,7 +173,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "green",
@@ -217,7 +220,7 @@
           "refId": "A"
         }
       ],
-      "title": "Beacon Head Slot",
+      "title": "Beacon Chain Current Slot",
       "type": "stat"
     },
     {
@@ -232,7 +235,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46"
+                "color": "#299c46",
+                "value": null
               },
               {
                 "color": "#eab839",
@@ -302,7 +306,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "green",
@@ -348,7 +353,7 @@
           "refId": "A"
         }
       ],
-      "title": "Beacondb Pending Deposits",
+      "title": "Pending Validator Deposit",
       "type": "stat"
     },
     {
@@ -364,7 +369,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               },
               {
                 "color": "#FADE2A",
@@ -435,7 +441,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "green",
@@ -481,7 +488,7 @@
           "refId": "A"
         }
       ],
-      "title": "Powchain Block Number",
+      "title": "Execution Lauyer Block Number",
       "type": "stat"
     },
     {
@@ -595,7 +602,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red"
+                "color": "dark-red",
+                "value": null
               },
               {
                 "color": "#EAB839",
