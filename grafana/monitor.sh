@@ -37,6 +37,7 @@ beacon_dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana
 echo_hash
 log "Downloading Prometheus Tar File"
 echo_hash
+log "Downloaded"
 
 log "creating prometheus directories"
 sudo mkdir -p /etc/prometheus
@@ -46,9 +47,9 @@ log "Downloading prometheus-2.41.0-rc.0.linux-amd64.tar.gz"
 wget https://github.com/prometheus/prometheus/releases/download/v2.41.0-rc.0/prometheus-2.41.0-rc.0.linux-amd64.tar.gz --no-verbose  -q
 log "Decompressing prometheus-2.41.0-rc.0.linux-amd64.tar.gz"
 tar -xzf prometheus-2.41.0-rc.0.linux-amd64.tar.gz
-log "Decompressed"
+log "Decompressed prometheus-2.41.0-rc.0.linux-amd64.tar.gz"
 
-log "Installing"
+log "Installing Prometheus"
 cd prometheus-2.41.0-rc.0.linux-amd64
 sudo cp -n -r  prometheus promtool /usr/local/bin/
 sudo cp -n -r consoles/ console_libraries/ /etc/prometheus/
@@ -56,10 +57,10 @@ cd
 downloadfile prometheus.yml $prometheusYmlPath
 sudo cp -n prometheus.yml /etc/prometheus/prometheus.yml
 
-log "adding prometheus group"
+log "Adding Prometheus Group"
 [ $(getent group prometheus) ] || sudo groupadd --system prometheus
 
-log "adding prometheus user"
+log "Adding Prometheus User"
 id -u prometheus &>/dev/null || sudo useradd -s /sbin/nologin --system -g prometheus prometheus
 
 sudo chown -R prometheus:prometheus /etc/prometheus/ /var/lib/prometheus/
@@ -134,3 +135,5 @@ log "Restarting Grafana Service"
 log "Dashboard Created"
 ip=$(curl --silent  ifconfig.me)
 log "Check Grafana URL: http://$ip:3000"
+log "Cleaning Up Everything"
+rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus*  
