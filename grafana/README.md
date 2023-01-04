@@ -11,5 +11,11 @@ chmod +x monitor.sh
 ```
 ---
 
-This will install grafana to you and will provision it on port `3000` but in order to access it you need to allow port `3000` from the console by doing the fllowing
+This will install grafana to you and will provision it on port `3000` but in order to access it you need to allow port `3000` from the console by doing the following:
 
+-  Login to aws console 
+-  Go to your [ec2 console]( https://us-east-1.console.aws.amazon.com/ec2/home)
+-  Click on your `EC2 Instance ID` ex i-03811ccxxxxxx 
+-  Click on the security tab like the following 
+<img width="1138" alt="image" src="https://user-images.githubusercontent.com/30278308/210558321-89a758a8-1b0f-4b7b-8d39-6b9bd4046e00.png">
+- Click on `sg url` in security group section  
