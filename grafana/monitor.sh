@@ -136,4 +136,4 @@ log "Dashboard Created"
 ip=$(curl --silent  ifconfig.me)
 log "Check Grafana URL: http://$ip:3000"
 log "Cleaning Up Everything"
-rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus*  
+rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus* node_exporter.service 
