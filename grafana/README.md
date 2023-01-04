@@ -19,4 +19,7 @@ This will install grafana to you and will provision it on port `3000` but in ord
 -  Click on the security tab like the following 
     <img width="1119" alt="Screen Shot 2023-01-04 at 2 51 28 PM" src="https://user-images.githubusercontent.com/30278308/210559348-a33dc2ce-d96e-4a7b-b49b-1cc13118c5a2.png">
 
-- Click on `sg url` in security group section  
+- Click on `sg url` in `Security Groups` section
+- Click on `Inbound`
+- Click on Edit Inbound Role
+- Add port `80`
