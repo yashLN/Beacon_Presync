@@ -140,14 +140,8 @@ log "Dashboard Created"
 echo_hash
 log "Installing nginx"
 echo_hash
-if command -v nginx
-then
-  sudo systemctl status nginx
-  back
-else
-  sudo amazon-linux-extras install nginx1 -y
-fi
-downloadfile nginx.cong $nginx_config
+sudo amazon-linux-extras install nginx1 -y
+downloadfile nginx.conf $nginx_config
 sudo cp nginx.conf /etc/nginx/nginx.conf
 sudo systemctl enable nginx
 sudo systemctl start nginx
