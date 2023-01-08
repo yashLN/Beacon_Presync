@@ -33,6 +33,7 @@ dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafan
 small_amount_validators=https://docs.prylabs.network/assets/grafana-dashboards/small_amount_validators.json
 node_exporter=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/node_exporter.service
 beacon_dashboard=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/beacon-dashboard.json
+nginx_config=https://raw.githubusercontent.com/yashLN/Beacon_Presync/grafana/grafana/nginx.conf
 
 echo_hash
 log "Downloading Prometheus Tar File"
@@ -133,10 +134,8 @@ sudo systemctl restart grafana-server
 log "Restarting Grafana Service"
 
 log "Dashboard Created"
-ip=$(curl --silent  ifconfig.me)
-log "Check Grafana URL: http://$ip:3000"
-log "Cleaning Up Everything"
-rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus* node_exporter.service 
+# ip=$(curl --silent  ifconfig.me)
+# log "Check Grafana URL: http://$ip:3000"
 
 echo_hash
 log "Installing nginx"
@@ -148,3 +147,12 @@ then
 else
   sudo amazon-linux-extras install nginx1 -y
 fi
+downloadfile nginx.cong $nginx_config
+sudo cp nginx.conf /etc/nginx/nginx.conf
+sudo systemctl enable nginx
+sudo systemctl start nginx
+log "nginx started"
+
+echo_hash
+log "Cleaning Up Everything"
+rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus* node_exporter.service nginx.conf
