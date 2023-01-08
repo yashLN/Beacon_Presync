@@ -137,3 +137,14 @@ ip=$(curl --silent  ifconfig.me)
 log "Check Grafana URL: http://$ip:3000"
 log "Cleaning Up Everything"
 rm -rf beacon_dashboard.json grafana-enterprise* node_exporter-* prometheus* node_exporter.service 
+
+echo_hash
+log "Installing nginx"
+echo_hash
+if command -v nginx
+then
+  sudo systemctl status nginx
+  back
+else
+  sudo amazon-linux-extras install nginx1 -y
+fi
