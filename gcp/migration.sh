@@ -42,4 +42,4 @@ docker pull public.ecr.aws/n2u0q7l0/geth:stable
 sudo systemctl start beacon-geth.service
 
 log "Cleaning Up Everything"
-sudo rm -rf docker-compose-grpc.yaml beacon-geth.service
+sudo rm -rf docker-compose.yaml beacon-geth.service
