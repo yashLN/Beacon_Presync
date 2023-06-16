@@ -1,0 +1,41 @@
+version: '3'
+services:
+   geth-node :
+    image: public.ecr.aws/n2u0q7l0/geth:stable
+    restart: on-failure
+    network_mode: host
+    ports:
+      - "3500:3500"
+      - "8545:8545"
+      - "30303:30303"
+      - "8551:8551"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 100
+        window: 10020s
+    container_name:  geth-node
+    command: '--datadir=/root --http --http.port=8545 --http.addr=0.0.0.0 --http.vhosts=* --http.api=eth,net,engine,admin --cache 3072 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/jwt/jwt.hex'
+    volumes:
+    - /var/.geth:/root
+    - /var/JWT:/jwt
+   beacon-node :
+    image: public.ecr.aws/n2u0q7l0/beacon:stable
+    restart: on-failure
+    ports:
+      - "4000:4000"
+      - "13000:13000"
+      - "12000:12000" 
+    network_mode: host        
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 100
+        window: 10020s
+    container_name:  beacon-node
+    command: '--datadir=/beaconchaindata --rpc-host=0.0.0.0 --monitoring-host=0.0.0.0 --block-batch-limit=512 --p2p-max-peers=100 --accept-terms-of-use=true --execution-endpoint=http://localhost:8551/ --jwt-secret=/jwt/jwt.hex --grpc-gateway-port=3500 --grpc-gateway-host=0.0.0.0 --suggested-fee-recipient=${recipientcode}'
+    volumes:
+    - /var/.eth2:/beaconchaindata
+    - /var/JWT:/jwt
