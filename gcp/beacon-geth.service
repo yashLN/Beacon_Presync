@@ -1,0 +1,14 @@
+equires=docker.service
+After=docker.service
+[Unit]
+StartLimitIntervalSec=0
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/var/
+ExecStart=/usr/local/bin/docker-compose  --env-file .recipientcode.txt up -d  
+ExecStop=/usr/local/bin/docker-compose down -t 180
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
